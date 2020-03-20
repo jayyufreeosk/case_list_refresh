@@ -34,7 +34,7 @@ def gsheet_import_caselist(network, verbose=False):
     print(f'Successfully returned {network}.')
     
     return df
-    
+
 def gsheet_programs(gsheet_df):
     print(f'Imported Gsheet Dataframe has (rows, columns): {gsheet_df.shape}')
     not_list = gsheet_df['Program'].to_list() + ['0', '0']
@@ -189,3 +189,84 @@ def refresher(network_input):
         else: 
             wm_df = wm_formatter(raw_wm_df)
             gsheet_uploader("Walmart", gsheet_df, wm_df)
+
+class hyperlink_update:
+    """
+    THREE DICTIONARIES CREATED
+    1. D that lists {programs: Cell location} that need to be hyperlinked (hyperlink_retriever)
+    2. D that lists {programs: GDrive ID} currently in 'Cases' GDrive folder (file_list_agg)
+    3. D that combines D1 and D2 {Cell Location: {program: GDrive ID}} (file_name_checker)
+    """
+
+    def __init__(self, gsheet_url, network):
+        self.gsheet_url = gsheet_url
+        self.network = network
+    
+    def worksheet(self):
+        self.gc = pygsheets.authorize(client_secret='../client_secret.json')
+        self.sh = gc.open_by_url(self.gsheet_url)
+        
+        network_dict = {
+        "Sam's Club":0,
+        'Walmart':1
+        }
+        
+        # Relating network to sheet index
+        network_choice = network_dict[self.network]
+        network_choice = 2 # testing
+
+        self.wk = sh[network_choice]
+        
+    def hyperlink_retriever(self): # Retrieves list of programs to find in Cases GDrive folder
+        self.requires_hyperlink_d = {}
+
+        n_rows = self.wk.rows + 1
+        for i in range(2, n_rows):
+            cell = pygsheets.Cell(f'A{i}', worksheet=self.wk, cell_data=None)
+            
+            cell_value = self.wk.get_value(f'A{i}')
+            
+            if not cell.formula and cell_value: # Must have value but no hyperlink
+
+                print(f'Cell A{i} requires a hyperlink: {cell_value}')
+                
+                file_name = cell_value.split('.')[0] + '_case.pptx' # Name to help locate file names
+                
+                # {File Name PPTX: Cell Location}
+                self.requires_hyperlink_d[file_name] = f'A{i}'
+        
+        return self.requires_hyperlink_d
+    
+    def file_list_agg(self):
+        from pydrive.auth import GoogleAuth
+        from pydrive.drive import GoogleDrive
+
+        gauth = GoogleAuth()
+        gauth.LocalWebserverAuth()
+
+        drive = GoogleDrive(gauth)
+        self.file_list = {}
+
+        folder_files = drive.ListFile({'q': "'1qQZpAhzmKoR7drBYh8kYWVS6GaMPCxr3' in parents"}).GetList()
+        for file in folder_files:
+            print(file['title'])
+            
+            # {'File Name PPTX': 'File GDrive ID'}
+            self.file_list[file['title']] = file['id']
+    
+    def file_name_checker(self):
+        self.hyperlink_d = {}
+        
+        for file_name, file_id in self.file_list.items():
+            if file_name in self.requires_hyperlink_d.keys():
+                print(f'Found one {file_name}!')
+        
+                file_name_zip = file_name.split('.pptx')[0] + '.zip' # Reference back to original name
+            
+                # {'Cell location' : {'File Name Zipped': 'File GDrive ID'}}
+                self.hyperlink_d[self.requires_hyperlink_d[file_name]] = {file_name_zip:file_id} 
+    
+    def hyperlink_updater(self):
+        for cell_location, inner_d in self.hyperlink_d.items():
+            file_name_zip = str(list(inner_d.keys())[0])
+            cell = pygsheets.Cell(cell_location, worksheet=self.wk)
