@@ -191,17 +191,11 @@ def refresher(network_input):
             gsheet_uploader("Walmart", gsheet_df, wm_df)
 
 class hyperlink_update:
-    """
-    THREE DICTIONARIES CREATED
-    1. D that lists {programs: Cell location} that need to be hyperlinked (hyperlink_retriever)
-    2. D that lists {programs: GDrive ID} currently in 'Cases' GDrive folder (file_list_agg)
-    3. D that combines D1 and D2 {Cell Location: {program: GDrive ID}} (file_name_checker)
-    """
 
     def __init__(self, gsheet_url, network):
         self.gsheet_url = gsheet_url
         self.network = network
-    
+
     def worksheet(self):
         self.gc = pygsheets.authorize(client_secret='../client_secret.json')
         self.sh = gc.open_by_url(self.gsheet_url)
@@ -234,8 +228,6 @@ class hyperlink_update:
                 
                 # {File Name PPTX: Cell Location}
                 self.requires_hyperlink_d[file_name] = f'A{i}'
-        
-        return self.requires_hyperlink_d
     
     def file_list_agg(self):
         from pydrive.auth import GoogleAuth
@@ -270,3 +262,19 @@ class hyperlink_update:
         for cell_location, inner_d in self.hyperlink_d.items():
             file_name_zip = str(list(inner_d.keys())[0])
             cell = pygsheets.Cell(cell_location, worksheet=self.wk)
+
+    def full_run(self):
+        if self.network == "Sam's Club" or self.network == 'All':
+            network_choice = 2
+            worksheet()
+            hyperlink_retriever()
+            file_list_agg()
+            file_name_checker()
+            hyperlink_updater()
+        if self.network == "Walmart" or self.network == 'All':
+            network_choice = 2
+            worksheet()
+            hyperlink_retriever()
+            file_list_agg()
+            file_name_checker()
+            hyperlink_updater()
