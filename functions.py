@@ -1,44 +1,65 @@
+from __future__ import print_function
+import pickle
+import os.path
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+
 import pygsheets
+
 import pandas as pd
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
 
+import time
+
+from config import mysql_credentials
+
 # https://pygsheets.readthedocs.io/en/stable/worksheet.html
 def mysql_query(query='DEFAULT', verbose=False):
     import sqlalchemy as sql
-    username = 'jyu'
-    password = 't4pu6["Hw+X@=~gL'
-    connection = '192.168.157.106'
-    database_name = 'ods'
+    username = mysql_credentials['username']
+    password = mysql_credentials['password']
+    connection = mysql_credentials['connection']
+    database_name = mysql_credentials['database_name']
     connect_string = f'mysql://{username}:{password}@{connection}/{database_name}'
     sql_engine = sql.create_engine(connect_string)
     df = pd.read_sql_query(query, sql_engine)
     if verbose: print(df.shape)
     return df
 
-def gsheet_import_caselist(network, verbose=False):
-    # Relating network to sheet index
+def worksheet(gsheet_url, network):
+    gc = pygsheets.authorize(client_secret='credentials/client_secret.json')
+    sh = gc.open_by_url(gsheet_url)
+
     network_dict = {
-        "Sam's Club":0,
-        'Walmart':1
+    "Sam's Club":0,
+    'Walmart':1
     }
-    network_choice = network_dict[network]
     
-    gc = pygsheets.authorize(client_secret='client_secret.json')
-    sh = gc.open_by_url('https://docs.google.com/spreadsheets/d/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/edit#gid=0')
-    df = sh[network_choice].get_as_df()
+    network_choice = network_dict[network] # Relating network to sheet index
+    # network_choice = 2 # testing
+    wk = sh[network_choice]
+    return wk
+
+
+# GOOGLE SPREADSHEET DATAFRAME UPDATER
+def gsheet_import_df(wk, verbose=False):
+
+    gsheet_df = wk.get_as_df()
     
     if verbose: print(df.shape)
     
     print(f'Successfully returned {network}.')
     
-    return df
+    return gsheet_df
 
 def gsheet_programs(gsheet_df):
-    print(f'Imported Gsheet Dataframe has (rows, columns): {gsheet_df.shape}')
+    print(f'Imported Gsheet Dataframe has (rows, columns): {gsheet_df.shape}.')
     not_list = gsheet_df['Program'].to_list() + ['0', '0']
     not_tuple = tuple(not_list)
+    print('Tupled dataframe programs.')
     return not_tuple
 
 def sc_sql_metrics(not_tuple):
@@ -151,130 +172,91 @@ def wm_formatter(raw_wm_df):
     
     return wm_df
 
-def gsheet_uploader(network, gsheet_df, df):
-    gsheet_import_appended = gsheet_df.append(df, ignore_index=True)
+def gsheet_uploader(wk, gsheet_df, append_df):
+    gsheet_import_appended = gsheet_df.append(append_df, ignore_index=True)
     
-    network_dict = {
-        "Sam's Club":0,
-        'Walmart':1
-    }
-    network_choice = network_dict[network]
-    
-    gc = pygsheets.authorize(client_secret='client_secret.json')
-    sh = gc.open_by_url('https://docs.google.com/spreadsheets/d/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/edit#gid=0')
-    sh[network_choice].clear('A2')
-    sh[network_choice].set_dataframe(gsheet_import_appended, 'A2', copy_index=False, copy_head=False, extend=False, fit=True, escape_formulae=True, nan='')
+    wk.clear('A2') # A2 is start of dataframe
+    wk.set_dataframe(gsheet_import_appended, 'A2', copy_index=False, copy_head=False, extend=False, fit=True, escape_formulae=True, nan='')
     print('New data has been successfully uploaded!') 
 
-def refresher(network_input):
+
+# HYPERLINK FUNCTIONS
+def gfile_list_agg():
+
+    # If modifying these scopes, delete the file token.pickle.
+    SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
+
+    """Shows basic usage of the Drive v3 API.
+    Prints the names and ids of the first 10 files the user has access to.
+    """
+    creds = None
+    # The file token.pickle stores the user's access and refresh tokens, and is
+    # created automatically when the authorization flow completes for the first
+    # time.
+    if os.path.exists('token.pickle'):
+        with open('token.pickle', 'rb') as token:
+            creds = pickle.load(token)
+    # If there are no (valid) credentials available, let the user log in.
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file(
+                '../credentials.json', SCOPES)
+            creds = flow.run_local_server(port=0)
+        # Save the credentials for the next run
+        with open('token.pickle', 'wb') as token:
+            pickle.dump(creds, token)
+
+    service = build('drive', 'v3', credentials=creds)
+
+    # Call the Drive v3 API
+
+    page_token = None
+    file_list = {}
+    page = 0
+
+    while True:
+        results = service.files().list(q="'1qQZpAhzmKoR7drBYh8kYWVS6GaMPCxr3' in parents", spaces='drive',
+                                              fields='nextPageToken, files(id, name)',
+                                              pageToken=page_token).execute()
+        items = results.get('files', [])
+
+        for item in items:
+            file_list[item['name']] = item['id']
+
+        page_token = results.get('nextPageToken', None)
+        if page_token is None: break
+
+    print('Google Drive: PPTX files collected')
+    print(f'There are {len(file_list)} PPTX files in the Cases folder.')
+    return file_list
+
+def hyperlink_updater(wk, file_list):
     
-    if network_input == "Sam's Club" or network_input == 'All':
-        print("Running for Sam's Club")
-        gsheet_df = gsheet_import_caselist("Sam's Club")
-        not_tuple = gsheet_programs(gsheet_df)
-        raw_sc_df = sc_sql_metrics(not_tuple)
-        if raw_sc_df.empty: print('No new SC rows to append. Stopping upload.')
-        else: 
-            sc_df = sc_formatter(raw_sc_df)
-            gsheet_uploader("Sam's Club", gsheet_df, sc_df)
-    
-    print('------------------------------------------------')
-
-    if network_input == 'Walmart' or network_input == 'All':
-        print("Running for Walmart")
-        gsheet_df = gsheet_import_caselist('Walmart')
-        not_tuple = gsheet_programs(gsheet_df)
-        raw_wm_df = wm_sql_metrics(not_tuple)
-        if raw_wm_df.empty: print('No new WM rows to append. Stopping upload.')
-        else: 
-            wm_df = wm_formatter(raw_wm_df)
-            gsheet_uploader("Walmart", gsheet_df, wm_df)
-
-class hyperlink_update:
-
-    def __init__(self, gsheet_url, network):
-        self.gsheet_url = gsheet_url
-        self.network = network
-
-    def worksheet(self):
-        self.gc = pygsheets.authorize(client_secret='../client_secret.json')
-        self.sh = gc.open_by_url(self.gsheet_url)
+    n_rows = wk.rows + 1
+    for i in range(2, n_rows):
         
-        network_dict = {
-        "Sam's Club":0,
-        'Walmart':1
-        }
+        cell = pygsheets.Cell(f'A{i}', worksheet=wk, cell_data=None)
+        cell_value = wk.get_value(f'A{i}')
         
-        # Relating network to sheet index
-        network_choice = network_dict[self.network]
-        network_choice = 2 # testing
+        if not cell.formula and cell_value: # Must have value but no hyperlink
 
-        self.wk = sh[network_choice]
-        
-    def hyperlink_retriever(self): # Retrieves list of programs to find in Cases GDrive folder
-        self.requires_hyperlink_d = {}
-
-        n_rows = self.wk.rows + 1
-        for i in range(2, n_rows):
-            cell = pygsheets.Cell(f'A{i}', worksheet=self.wk, cell_data=None)
+            print(f'Cell A{i} requires a hyperlink: {cell_value}')
             
-            cell_value = self.wk.get_value(f'A{i}')
+            file_name = cell_value.split('.')[0] + '_case.pptx' # Name to help locate file names
+            cell_nbr = f'A{i}'
+                        
+            file_list_names = list(file_list.keys())
             
-            if not cell.formula and cell_value: # Must have value but no hyperlink
-
-                print(f'Cell A{i} requires a hyperlink: {cell_value}')
-                
-                file_name = cell_value.split('.')[0] + '_case.pptx' # Name to help locate file names
-                
-                # {File Name PPTX: Cell Location}
-                self.requires_hyperlink_d[file_name] = f'A{i}'
-    
-    def file_list_agg(self):
-        from pydrive.auth import GoogleAuth
-        from pydrive.drive import GoogleDrive
-
-        gauth = GoogleAuth()
-        gauth.LocalWebserverAuth()
-
-        drive = GoogleDrive(gauth)
-        self.file_list = {}
-
-        folder_files = drive.ListFile({'q': "'1qQZpAhzmKoR7drBYh8kYWVS6GaMPCxr3' in parents"}).GetList()
-        for file in folder_files:
-            print(file['title'])
-            
-            # {'File Name PPTX': 'File GDrive ID'}
-            self.file_list[file['title']] = file['id']
-    
-    def file_name_checker(self):
-        self.hyperlink_d = {}
-        
-        for file_name, file_id in self.file_list.items():
-            if file_name in self.requires_hyperlink_d.keys():
+            if file_name in file_list_names:
                 print(f'Found one {file_name}!')
-        
-                file_name_zip = file_name.split('.pptx')[0] + '.zip' # Reference back to original name
-            
-                # {'Cell location' : {'File Name Zipped': 'File GDrive ID'}}
-                self.hyperlink_d[self.requires_hyperlink_d[file_name]] = {file_name_zip:file_id} 
-    
-    def hyperlink_updater(self):
-        for cell_location, inner_d in self.hyperlink_d.items():
-            file_name_zip = str(list(inner_d.keys())[0])
-            cell = pygsheets.Cell(cell_location, worksheet=self.wk)
 
-    def full_run(self):
-        if self.network == "Sam's Club" or self.network == 'All':
-            network_choice = 2
-            worksheet()
-            hyperlink_retriever()
-            file_list_agg()
-            file_name_checker()
-            hyperlink_updater()
-        if self.network == "Walmart" or self.network == 'All':
-            network_choice = 2
-            worksheet()
-            hyperlink_retriever()
-            file_list_agg()
-            file_name_checker()
-            hyperlink_updater()
+                file_name_zip = file_name.split('.pptx')[0] + '.zip' # Reference back to original name
+
+                cell.formula = f'=HYPERLINK("https://drive.google.com/file/d/{file_list[file_name]}", "{file_name_zip}")'
+
+                print(f'Replaced {cell_nbr}: {file_name} : {file_list[file_name]}')
+                
+            else: 
+                print(f'COULD NOT REPLACE {cell_nbr}: {file_name}')

@@ -91,3 +91,5 @@ target/
 # client_secret
 client_secret.json
 sheets.googleapis.com-python.json
+credentials.json
+config.py
