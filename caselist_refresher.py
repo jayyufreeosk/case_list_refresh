@@ -36,7 +36,7 @@ def initial_prompts(script_name):
     return network_name
 
 def main():
-    gsheet_url = 'https://docs.google.com/spreadsheets/d/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/edit#gid=0'
+    gsheet_url = 'https://docs.google.com/spreadsheets/d/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/edit#gid=0'
     network_name = initial_prompts('Case List Refresher')
     # network_name = 'All'
 

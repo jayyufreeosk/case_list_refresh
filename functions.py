@@ -51,7 +51,7 @@ def gsheet_import_df(wk, verbose=False):
     
     if verbose: print(df.shape)
     
-    print(f'Successfully returned {network}.')
+    print(f'Successfully returned dataframe.')
     
     return gsheet_df
 
@@ -193,8 +193,8 @@ def gfile_list_agg():
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
+    if os.path.exists('credentials/token.pickle'):
+        with open('credentials/token.pickle', 'rb') as token:
             creds = pickle.load(token)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
@@ -202,10 +202,10 @@ def gfile_list_agg():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                '../credentials.json', SCOPES)
+                'credentials/credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open('token.pickle', 'wb') as token:
+        with open('credentials/token.pickle', 'wb') as token:
             pickle.dump(creds, token)
 
     service = build('drive', 'v3', credentials=creds)
@@ -244,7 +244,7 @@ def hyperlink_updater(wk, file_list):
 
             print(f'Cell A{i} requires a hyperlink: {cell_value}')
             
-            file_name = cell_value.split('.')[0] + '_case.pptx' # Name to help locate file names
+            file_name = cell_value.split('.')[0] + '.pptx' # Name to help locate file names
             cell_nbr = f'A{i}'
                         
             file_list_names = list(file_list.keys())
