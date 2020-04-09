@@ -4,3 +4,6 @@ credentials/
 # user
 .vscode/
 __pycache__/
+
+# config
+config.py

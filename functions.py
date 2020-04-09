@@ -14,7 +14,20 @@ pd.set_option('display.width', 1000)
 
 import time
 
-from config import mysql_credentials
+import os
+import os.path
+from os import path
+from shutil import copy
+import re
+
+import logging
+logging.basicConfig(filename='app.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
+
+try: 
+    from config import mysql_credentials
+    from config import powerpoint_paths
+except ImportError:
+    logging.error('No config file found. Please create one', exc_info=True)
 
 # https://pygsheets.readthedocs.io/en/stable/worksheet.html
 def mysql_query(query='DEFAULT', verbose=False):
@@ -242,7 +255,7 @@ def hyperlink_updater(wk, file_list):
         
         if not cell.formula and cell_value: # Must have value but no hyperlink
 
-            print(f'Cell A{i} requires a hyperlink: {cell_value}')
+            # print(f'Cell A{i} requires a hyperlink: {cell_value}')
             
             file_name = cell_value.split('.')[0] + '.pptx' # Name to help locate file names
             cell_nbr = f'A{i}'
@@ -260,3 +273,32 @@ def hyperlink_updater(wk, file_list):
                 
             else: 
                 print(f'COULD NOT REPLACE {cell_nbr}: {file_name}')
+
+def ppt_migrator(network):
+    
+    if network == "Sam's Club": src = powerpoint_paths['sc_src']
+    elif network == 'Walmart': src = powerpoint_paths['wm_src']
+        
+    files = []
+    # r=root, d=directories, f = files
+    for r, d, f in os.walk(src):
+        for file in f:
+            if 'case.pptx' in file:
+                files.append(os.path.join(r, file))
+    if not files: print('No files found, please check source path.')
+    
+    dst = powerpoint_paths['dst']
+
+    count = 0
+
+    for x in files:
+        if network == "Sam's Club": x_split = re.split('(FSC.*)', x)[1]
+        elif network == "Walmart": x_split = re.split('(ACWM.*)', x)[1]
+            
+        if path.exists(dst + '\\' + x_split): pass
+        else:
+            print(f'Replacing {x_split}.')
+            copy(x, dst)
+            count += 1
+
+    print(f'{count} files migrated.')
