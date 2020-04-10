@@ -40,23 +40,31 @@ def main():
     # gsheet_url = 'https://docs.google.com/spreadsheets/d/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/edit#gid=0' # TEST
     network_name = initial_prompts('Case List Refresher')
     # network_name = 'All'
-
+    print('Running Step 1')
     file_list = gfile_list_agg() # Aggregates list of PPTX files in GDrive (>750 elements)
-
+    
+    metric_xlsx_migrater() # Migrates all_wm and all_longitudinal_card
+    print('Step 1 completed.')
+    print('============================================')
+    print('Running Step 2')
+    print('============================================')
     if network_name == 'All' or network_name == "Sam's Club":
         network_name_sub = "Sam's Club"
 
         print("Running appender for Sam's Club.")
         wk = worksheet(gsheet_url, network_name_sub)
         gsheet_df = gsheet_import_df(wk)
-        not_tuple = gsheet_programs(gsheet_df) # Checks for rows to append
-        raw_sc_df = sc_sql_metrics(not_tuple) # Returns rows to append
-        if raw_sc_df.empty: 
+        
+        sc_df_raw = all_longitudinal_card_import()
+        sc_df_formatted = sc_formatter(sc_df_raw)
+        not_list = gsheet_df['Program'].to_list() # Checks for rows to append
+        append_df = sc_df_formatted[~sc_df_formatted['Program'].isin(not_list)] # Returns rows to append
+
+        if append_df.empty: 
             print('No new SC rows to append. Stopping upload.')
             logging.warning('No new SC rows to append. Stopping upload.')
         else: 
-            sc_df = sc_formatter(raw_sc_df)
-            gsheet_uploader(wk, gsheet_df, sc_df)
+            gsheet_uploader(wk, gsheet_df, append_df)
 
         print('----------------------------------------')
         print("Running PPTX migrator for Sam's Club.")
@@ -81,14 +89,17 @@ def main():
         print("Running appender for Walmart.")
         wk = worksheet(gsheet_url, network_name_sub)
         gsheet_df = gsheet_import_df(wk)
-        not_tuple = gsheet_programs(gsheet_df)
-        raw_wm_df = wm_sql_metrics(not_tuple)
-        if raw_wm_df.empty:
-            print('No new wm rows to append. Stopping upload.')
+
+        wm_df_raw = all_wm_import()
+        wm_df_formatted = wm_formatter(wm_df_raw)
+        not_list = gsheet_df['Program'].to_list() # Checks for rows to append
+        append_df = wm_df_formatted[~wm_df_formatted['Program'].isin(not_list)] # Returns rows to append
+
+        if append_df.empty:
+            print('No new WM rows to append. Stopping upload.')
             logging.warning('No new WM rows to append. Stopping upload.')
         else: 
-            wm_df = wm_formatter(raw_wm_df)
-            gsheet_uploader("Walmart", gsheet_df, wm_df)
+            gsheet_uploader(wk, gsheet_df, append_df)
 
         print('----------------------------------------')
         print("Running PPTX migrator for Walmart.")
@@ -104,7 +115,7 @@ def main():
             logging.error("hyperlink_updater failed.", exc_info=True)
             print('hyperlink_updater failed.')
 
-        
-        logging.info('__main__ complete.')
+    logging.info('__main__ complete.')
+    print('Step 2 completed.')
 if __name__ == "__main__":
     main()

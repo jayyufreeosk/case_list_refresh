@@ -944,3 +944,829 @@ ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or googl
 07-Apr-20 01:14:01 - WARNING - Sleeping 1.43 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A1089%3AA1089?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
 07-Apr-20 01:14:03 - WARNING - Sleeping 1.00 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A1089%3AAG1183&alt=json, after 429
 07-Apr-20 01:15:06 - WARNING - No new SC rows to append. Stopping upload.
+09-Apr-20 18:01:58 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 18:03:27 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 18:05:32 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 18:06:09 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 18:11:14 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 18:12:34 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 18:13:15 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 18:24:19 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 18:26:11 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 18:30:53 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 19:05:43 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 19:06:42 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 19:10:54 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 19:15:54 - ERROR - ppt_migrator failed.
+Traceback (most recent call last):
+  File "caselist_refresher_auto.py", line 71, in main
+    try: ppt_migrator(network_name_sub)
+  File "C:\Users\jay.yu\Documents\Git\case_list_refresh\functions.py", line 295, in ppt_migrator
+    for r, d, f in os.walk(src):
+  File "C:\ProgramData\Anaconda3\lib\os.py", line 410, in walk
+    yield from walk(new_path, topdown, onerror, followlinks)
+  File "C:\ProgramData\Anaconda3\lib\os.py", line 410, in walk
+    yield from walk(new_path, topdown, onerror, followlinks)
+  File "C:\ProgramData\Anaconda3\lib\os.py", line 410, in walk
+    yield from walk(new_path, topdown, onerror, followlinks)
+  File "C:\ProgramData\Anaconda3\lib\os.py", line 349, in walk
+    scandir_it = scandir(top)
+KeyboardInterrupt
+09-Apr-20 19:15:58 - ERROR - Sam's Club hyperlink_updater failed.
+Traceback (most recent call last):
+  File "caselist_refresher_auto.py", line 78, in main
+    try: hyperlink_updater(wk, file_list)
+  File "C:\Users\jay.yu\Documents\Git\case_list_refresh\functions.py", line 267, in hyperlink_updater
+    if not cell.formula and cell_value: # Must have value but no hyperlink
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pygsheets\cell.py", line 134, in formula
+    self.fetch()
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pygsheets\cell.py", line 431, in fetch
+    ranges=self._worksheet._get_range(self.label))
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pygsheets\sheet.py", line 146, in get
+    return self._execute_requests(self.service.spreadsheets().get(spreadsheetId=spreadsheet_id, **kwargs))
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pygsheets\sheet.py", line 359, in _execute_requests
+    response = request.execute(num_retries=self.retries)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\_helpers.py", line 134, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\http.py", line 892, in execute
+    headers=self.headers,
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\http.py", line 172, in _retry_request
+    resp, content = http.request(uri, method, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\google_auth_httplib2.py", line 198, in request
+    uri, method, body=body, headers=request_headers, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\httplib2\__init__.py", line 1991, in request
+    cachekey,
+  File "C:\ProgramData\Anaconda3\lib\site-packages\httplib2\__init__.py", line 1651, in _request
+    conn, request_uri, method, body, headers
+  File "C:\ProgramData\Anaconda3\lib\site-packages\httplib2\__init__.py", line 1589, in _conn_request
+    response = conn.getresponse()
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1336, in getresponse
+    response.begin()
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 306, in begin
+    version, status, reason = self._read_status()
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 267, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\ProgramData\Anaconda3\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "C:\ProgramData\Anaconda3\lib\ssl.py", line 1071, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\ProgramData\Anaconda3\lib\ssl.py", line 929, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+09-Apr-20 19:15:58 - WARNING - No new SC rows to append. Stopping upload.
+09-Apr-20 19:16:20 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 19:37:21 - WARNING - Sleeping 1.66 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A53%3AAG244&alt=json, after 429
+09-Apr-20 19:37:23 - WARNING - Sleeping 0.40 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A53%3AAG244&alt=json, after 429
+09-Apr-20 19:37:24 - WARNING - Sleeping 0.16 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A53%3AAG244&alt=json, after 429
+09-Apr-20 19:39:04 - WARNING - Sleeping 1.12 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A53%3AAG244&alt=json, after 429
+09-Apr-20 19:39:07 - WARNING - Sleeping 0.55 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A54%3AA54?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 19:40:26 - ERROR - Sam's Club hyperlink_updater failed.
+Traceback (most recent call last):
+  File "caselist_refresher_auto.py", line 78, in main
+    try: hyperlink_updater(wk, file_list)
+  File "C:\Users\jay.yu\Documents\Git\case_list_refresh\functions.py", line 265, in hyperlink_updater
+    cell_value = wk.get_value(f'A{i}')
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pygsheets\worksheet.py", line 293, in get_value
+    include_tailing_empty_rows=True, value_render=value_render)[0][0]
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pygsheets\utils.py", line 178, in wrapper
+    return method(self, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pygsheets\worksheet.py", line 355, in get_values
+    date_time_render_option=date_time_render_option, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pygsheets\client.py", line 209, in get_range
+    date_time_render_option)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pygsheets\sheet.py", line 344, in values_get
+    return self._execute_requests(request)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pygsheets\sheet.py", line 359, in _execute_requests
+    response = request.execute(num_retries=self.retries)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\_helpers.py", line 134, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\http.py", line 892, in execute
+    headers=self.headers,
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\http.py", line 172, in _retry_request
+    resp, content = http.request(uri, method, *args, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\google_auth_httplib2.py", line 198, in request
+    uri, method, body=body, headers=request_headers, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\httplib2\__init__.py", line 1991, in request
+    cachekey,
+  File "C:\ProgramData\Anaconda3\lib\site-packages\httplib2\__init__.py", line 1651, in _request
+    conn, request_uri, method, body, headers
+  File "C:\ProgramData\Anaconda3\lib\site-packages\httplib2\__init__.py", line 1589, in _conn_request
+    response = conn.getresponse()
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 1336, in getresponse
+    response.begin()
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 306, in begin
+    version, status, reason = self._read_status()
+  File "C:\ProgramData\Anaconda3\lib\http\client.py", line 267, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\ProgramData\Anaconda3\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "C:\ProgramData\Anaconda3\lib\ssl.py", line 1071, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\ProgramData\Anaconda3\lib\ssl.py", line 929, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+09-Apr-20 19:40:26 - WARNING - No new SC rows to append. Stopping upload.
+09-Apr-20 19:45:36 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 19:50:37 - WARNING - No new SC rows to append. Stopping upload.
+09-Apr-20 20:01:04 - WARNING - Sleeping 0.35 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A65%3AA65?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:02:33 - WARNING - Sleeping 1.10 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A89%3AAG244&alt=json, after 429
+09-Apr-20 20:02:34 - WARNING - Sleeping 1.57 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A89%3AAG244&alt=json, after 429
+09-Apr-20 20:02:36 - WARNING - Sleeping 7.29 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A89%3AAG244&alt=json, after 429
+09-Apr-20 20:05:46 - WARNING - Sleeping 1.27 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A114%3AA114?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:05:47 - WARNING - Sleeping 3.40 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A114%3AA114?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:05:51 - WARNING - Sleeping 3.80 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A114%3AA114?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:08:58 - WARNING - Sleeping 1.07 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A141%3AAG244&alt=json, after 429
+09-Apr-20 20:08:59 - WARNING - Sleeping 1.51 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A141%3AAG244&alt=json, after 429
+09-Apr-20 20:09:01 - WARNING - Sleeping 4.13 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A141%3AAG244&alt=json, after 429
+09-Apr-20 20:10:45 - WARNING - Sleeping 0.80 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A141%3AAG244&alt=json, after 429
+09-Apr-20 20:10:48 - WARNING - Sleeping 0.08 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A142%3AA142?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:12:17 - WARNING - Sleeping 1.90 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A172%3AA172?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:12:19 - WARNING - Sleeping 0.48 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A172%3AA172?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:12:19 - WARNING - Sleeping 2.08 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A172%3AA172?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:14:02 - WARNING - Sleeping 0.05 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A172%3AA172?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:14:02 - WARNING - Sleeping 0.10 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A172%3AAG244&alt=json, after 429
+09-Apr-20 20:15:20 - WARNING - Sleeping 0.89 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A204%3AAG244&alt=json, after 429
+09-Apr-20 20:15:21 - WARNING - Sleeping 3.87 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A204%3AAG244&alt=json, after 429
+09-Apr-20 20:15:25 - WARNING - Sleeping 7.23 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A204%3AAG244&alt=json, after 429
+09-Apr-20 20:17:13 - WARNING - Sleeping 0.23 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A204%3AAG244&alt=json, after 429
+09-Apr-20 20:17:14 - WARNING - Sleeping 0.72 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A205%3AA205?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:18:27 - WARNING - Sleeping 0.85 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A243%3AA243?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:18:28 - WARNING - Sleeping 3.91 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A243%3AA243?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:18:32 - WARNING - Sleeping 6.78 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A243%3AA243?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:20:19 - WARNING - Sleeping 0.00 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A243%3AA243?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 20:20:20 - WARNING - Sleeping 0.46 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A243%3AAG244&alt=json, after 429
+09-Apr-20 20:20:22 - WARNING - No new SC rows to append. Stopping upload.
+09-Apr-20 22:25:39 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 22:46:46 - WARNING - Sleeping 1.40 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A141%3AAG244&alt=json, after 429
+09-Apr-20 22:46:48 - WARNING - Sleeping 3.81 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A141%3AAG244&alt=json, after 429
+09-Apr-20 22:46:52 - WARNING - Sleeping 4.83 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A141%3AAG244&alt=json, after 429
+09-Apr-20 22:48:37 - WARNING - Sleeping 1.91 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A141%3AAG244&alt=json, after 429
+09-Apr-20 22:48:43 - WARNING - Sleeping 1.78 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A142%3AA142?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 22:50:01 - WARNING - Sleeping 1.26 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A165%3AAG244&alt=json, after 429
+09-Apr-20 22:50:03 - WARNING - Sleeping 2.71 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A165%3AAG244&alt=json, after 429
+09-Apr-20 22:50:06 - WARNING - Sleeping 0.24 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A165%3AAG244&alt=json, after 429
+09-Apr-20 22:51:46 - WARNING - Sleeping 1.71 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A165%3AAG244&alt=json, after 429
+09-Apr-20 22:51:50 - WARNING - Sleeping 1.03 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A166%3AA166?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 22:53:07 - WARNING - Sleeping 1.57 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A192%3AAG244&alt=json, after 429
+09-Apr-20 22:53:09 - WARNING - Sleeping 0.02 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A192%3AAG244&alt=json, after 429
+09-Apr-20 22:53:09 - WARNING - Sleeping 1.17 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A192%3AAG244&alt=json, after 429
+09-Apr-20 22:54:50 - WARNING - Sleeping 0.66 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A192%3AAG244&alt=json, after 429
+09-Apr-20 22:54:52 - WARNING - Sleeping 1.53 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A193%3AA193?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 22:56:13 - WARNING - Sleeping 0.68 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A227%3AAG244&alt=json, after 429
+09-Apr-20 22:56:14 - WARNING - Sleeping 0.51 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A227%3AAG244&alt=json, after 429
+09-Apr-20 22:56:14 - WARNING - Sleeping 3.52 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A227%3AAG244&alt=json, after 429
+09-Apr-20 22:58:27 - WARNING - No new SC rows to append. Stopping upload.
+09-Apr-20 23:02:43 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 23:05:29 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 23:09:24 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 23:16:31 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 23:19:58 - WARNING - Sleeping 0.21 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A52%3AAG216&alt=json, after 429
+09-Apr-20 23:19:58 - WARNING - Sleeping 0.58 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A52%3AAG216&alt=json, after 429
+09-Apr-20 23:19:59 - WARNING - Sleeping 6.57 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A52%3AAG216&alt=json, after 429
+09-Apr-20 23:21:46 - WARNING - Sleeping 1.41 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A52%3AAG216&alt=json, after 429
+09-Apr-20 23:21:48 - WARNING - Sleeping 0.29 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/WM%21A53%3AA53?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 23:22:52 - WARNING - Sleeping 0.71 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A98%3AAG216&alt=json, after 429
+09-Apr-20 23:22:52 - WARNING - Sleeping 0.90 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A98%3AAG216&alt=json, after 429
+09-Apr-20 23:22:54 - WARNING - Sleeping 2.10 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A98%3AAG216&alt=json, after 429
+09-Apr-20 23:24:36 - WARNING - Sleeping 1.47 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A98%3AAG216&alt=json, after 429
+09-Apr-20 23:26:04 - WARNING - Sleeping 0.06 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A155%3AAG216&alt=json, after 429
+09-Apr-20 23:26:04 - WARNING - Sleeping 3.02 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A155%3AAG216&alt=json, after 429
+09-Apr-20 23:26:07 - WARNING - Sleeping 2.78 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A155%3AAG216&alt=json, after 429
+09-Apr-20 23:27:50 - WARNING - Sleeping 0.90 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A155%3AAG216&alt=json, after 429
+09-Apr-20 23:29:09 - WARNING - Sleeping 1.06 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A201%3AAG216&alt=json, after 429
+09-Apr-20 23:29:10 - WARNING - Sleeping 0.03 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A201%3AAG216&alt=json, after 429
+09-Apr-20 23:29:10 - WARNING - Sleeping 0.99 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A201%3AAG216&alt=json, after 429
+09-Apr-20 23:30:52 - WARNING - Sleeping 1.52 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=WM%21A201%3AAG216&alt=json, after 429
+09-Apr-20 23:30:54 - WARNING - Sleeping 1.81 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/WM%21A202%3AA202?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 23:36:48 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 23:53:17 - WARNING - Sleeping 1.27 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A116%3AAG244&alt=json, after 429
+09-Apr-20 23:53:19 - WARNING - Sleeping 2.30 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A116%3AAG244&alt=json, after 429
+09-Apr-20 23:53:21 - WARNING - Sleeping 1.83 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A116%3AAG244&alt=json, after 429
+09-Apr-20 23:53:25 - WARNING - Sleeping 0.46 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A117%3AA117?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 23:56:20 - WARNING - Sleeping 0.81 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A165%3AAG244&alt=json, after 429
+09-Apr-20 23:56:21 - WARNING - Sleeping 0.10 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A165%3AAG244&alt=json, after 429
+09-Apr-20 23:56:21 - WARNING - Sleeping 3.47 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A165%3AAG244&alt=json, after 429
+09-Apr-20 23:58:05 - WARNING - Sleeping 0.12 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A165%3AAG244&alt=json, after 429
+09-Apr-20 23:59:21 - WARNING - Sleeping 1.31 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A194%3AAG244&alt=json, after 429
+09-Apr-20 23:59:22 - WARNING - Sleeping 1.53 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A194%3AAG244&alt=json, after 429
+09-Apr-20 23:59:24 - WARNING - Sleeping 5.41 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A194%3AAG244&alt=json, after 429
+10-Apr-20 00:01:09 - WARNING - Sleeping 0.18 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A194%3AAG244&alt=json, after 429
+10-Apr-20 00:01:10 - WARNING - Sleeping 1.48 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A195%3AA195?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:02:30 - WARNING - Sleeping 1.70 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A233%3AAG244&alt=json, after 429
+10-Apr-20 00:02:32 - WARNING - Sleeping 3.76 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A233%3AAG244&alt=json, after 429
+10-Apr-20 00:02:36 - WARNING - Sleeping 5.21 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A233%3AAG244&alt=json, after 429
+10-Apr-20 00:04:21 - WARNING - Sleeping 0.20 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A233%3AAG244&alt=json, after 429
+10-Apr-20 00:04:43 - WARNING - No new SC rows to append. Stopping upload.
+10-Apr-20 00:08:01 - WARNING - file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ModuleNotFoundError: No module named 'google.appengine'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ModuleNotFoundError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\__init__.py", line 42, in autodetect
+    from . import file_cache
+  File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
+    "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+10-Apr-20 00:16:38 - WARNING - No new SC rows to append. Stopping upload.
+10-Apr-20 00:25:50 - WARNING - Sleeping 0.04 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A97%3AA97?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:25:50 - WARNING - Sleeping 0.24 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A97%3AA97?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:25:51 - WARNING - Sleeping 4.90 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A97%3AA97?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:28:48 - WARNING - Sleeping 0.63 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A145%3AA145?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:28:49 - WARNING - Sleeping 3.67 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A145%3AA145?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:28:53 - WARNING - Sleeping 1.24 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A145%3AA145?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:30:35 - WARNING - Sleeping 0.41 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A145%3AA145?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:30:36 - WARNING - Sleeping 1.70 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A145%3AAG244&alt=json, after 429
+10-Apr-20 00:31:55 - WARNING - Sleeping 1.78 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A201%3AAG244&alt=json, after 429
+10-Apr-20 00:31:57 - WARNING - Sleeping 2.65 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A201%3AAG244&alt=json, after 429
+10-Apr-20 00:31:59 - WARNING - Sleeping 0.38 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A201%3AAG244&alt=json, after 429
+10-Apr-20 00:32:01 - WARNING - Sleeping 0.50 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A202%3AA202?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:32:01 - WARNING - Sleeping 2.64 seconds before retry 2 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A202%3AA202?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:32:04 - WARNING - Sleeping 1.55 seconds before retry 3 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A202%3AA202?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:33:46 - WARNING - Sleeping 1.60 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/values/SC%21A202%3AA202?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+10-Apr-20 00:33:48 - WARNING - Sleeping 0.12 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A202%3AAG244&alt=json, after 429
+10-Apr-20 00:34:21 - WARNING - No new SC rows to append. Stopping upload.

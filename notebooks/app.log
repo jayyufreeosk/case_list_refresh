@@ -82,3 +82,5 @@ Traceback (most recent call last):
   File "C:\ProgramData\Anaconda3\lib\site-packages\googleapiclient\discovery_cache\file_cache.py", line 41, in <module>
     "file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth"
 ImportError: file_cache is unavailable when using oauth2client >= 4.0.0 or google-auth
+09-Apr-20 19:42:48 - WARNING - Sleeping 1.10 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/values/SC%21A2%3AA2?majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER&alt=json, after 429
+09-Apr-20 19:42:50 - WARNING - Sleeping 0.64 seconds before retry 1 of 3 for request: GET https://sheets.googleapis.com/v4/spreadsheets/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY?fields=sheets%2Fdata%2FrowData&includeGridData=true&ranges=SC%21A2%3AAG1183&alt=json, after 429
