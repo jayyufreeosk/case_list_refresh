@@ -5,6 +5,7 @@ credentials/*
 # user
 .vscode/*
 __pycache__/*
+.ipynb_checkpoints/*
 
 # config
 config.py
