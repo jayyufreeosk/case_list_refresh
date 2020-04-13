@@ -197,18 +197,15 @@ def sc_formatter(sc_df_raw):
     sc_df_raw_3 = sc_df_raw_2[rearranged_columns].reset_index(drop=True)
 
     sc_df_formatted = sc_df_raw_3[(sc_df_raw_3['Weeks post'] == '12W') & (sc_df_raw_3['Program'].str.contains('_12.zip'))]
-
-    # sc_df_formatted.loc[:,'Start date']= pd.to_datetime(sc_df_formatted['Start date'])
-    # sc_df_formatted.loc[:,'End date']= pd.to_datetime(sc_df_formatted['End date'])
-    sc_df_formatted.to_excel('checks.xlsx')
+    sc_df_formatted['Start date']= pd.to_datetime(sc_df_formatted['Start date'])
+    sc_df_formatted['End date']= pd.to_datetime(sc_df_formatted['End date'])
     print(f'SC_Formatter completed! Shape is {sc_df_formatted.shape}')
     return sc_df_formatted
 
 def gsheet_uploader(wk, gsheet_df, append_df):
-    print(f'Number of new rows appended: {len(append_df.index)}')
     gsheet_import_appended = gsheet_df.append(append_df, ignore_index=True)
     
-    wk.clear('A2') # A2 is start of dataframe   
+    wk.clear('A2') # A2 is start of dataframe
     wk.set_dataframe(gsheet_import_appended, 'A2', copy_index=False, copy_head=False, extend=False, fit=True, escape_formulae=True, nan='')
     print('New data has been successfully uploaded!') 
 

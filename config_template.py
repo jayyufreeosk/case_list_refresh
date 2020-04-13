@@ -6,7 +6,7 @@ mysql_credentials = {
 }
 
 powerpoint_paths = {
-    'sc_src' : r'src',
-    'wm_src': r'src',
-    'dst' : r'dst'
+    'sc_src' : r'src', ## Longitudinals assembled
+    'wm_src': r'src', ## Walmart output
+    'dst' : r'dst' ## Google Drive cases
 }

@@ -10,8 +10,10 @@
 
 ## Google API Startup
 
-1. Follow instructions for pygsheets authorization: https://pygsheets.readthedocs.io/en/stable/authorization.html
-2. Follow steps 1 and 2 for GDive authorization: https://developers.google.com/drive/api/v3/quickstart/python
+1. Follow instructions for pygsheets authorization: https://pygsheets.readthedocs.io/en/stable/authorization.html.
+2. Follow steps 1 and 2 for GDive authorization: https://developers.google.com/drive/api/v3/quickstart/python.
+3. Fill out `config_template.py`.
+4. Create and sync with Google Drive cases folder in local
 
 ## Directions
 
