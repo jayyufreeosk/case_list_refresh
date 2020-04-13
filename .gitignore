@@ -1,5 +1,6 @@
 # credentials
 credentials/
+sheets.googleapis.com-python.json
 
 # user
 .vscode/
@@ -7,6 +8,7 @@ __pycache__/
 
 # config
 config.py
+app.log
 
 # data
 data/
