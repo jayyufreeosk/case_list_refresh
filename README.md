@@ -16,7 +16,7 @@
 ## Directions
 
 1. Make sure to edit the config file to reflect mysql credentials and source/destination directories.
-2. Make sure to have `Food_Mapping.xlsx` in the data directory.
+2. Make sure to have `Food_Mapping.xlsx` in the data directory. If in main directory, relocate the file into data.
 3. Run either `caselist_refresher.py` or `caselist_refresher_auto.py` to start the process.
 4. Check `app.log` to see if any errors come up.
 5. If using the notebook, make sure to import the config file for proper use.

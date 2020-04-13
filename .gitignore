@@ -1,14 +1,14 @@
 # credentials
-credentials/
-sheets.googleapis.com-python.json
+credentials/*
+*.json
 
 # user
-.vscode/
-__pycache__/
+.vscode/*
+__pycache__/*
 
 # config
 config.py
-app.log
+*.log
 
 # data
-data/
+data/*
