@@ -22,3 +22,18 @@
 3. Run either `caselist_refresher.py` or `caselist_refresher_auto.py` to start the process.
 4. Check `app.log` to see if any errors come up.
 5. If using the notebook, make sure to import the config file for proper use.
+
+## Versions
+
+### Version 2.0
+
+- Restructured entire program to use all_wm.xlsx and all_longitudinal_card.xlsx.
+- Presented to group for feedback.
+
+### Version 2.1
+
+- Convert engagement to %
+- Calculate sales lift delta
+- Annual value
+- Audience breakdown
+- Column to show finalized/submitted

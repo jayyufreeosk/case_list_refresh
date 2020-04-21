@@ -25,6 +25,7 @@ logging.basicConfig(filename='app.log', filemode='a', format='%(asctime)s - %(le
 try: 
     from config import mysql_credentials
     from config import powerpoint_paths
+    from config import local_data_paths
 except ImportError:
     logging.error('No config file found. Please create one', exc_info=True)
 
@@ -51,14 +52,13 @@ def worksheet(gsheet_url, network):
     }
     
     network_choice = network_dict[network] # Relating network to sheet index
-    # network_choice = 2 # testing
     wk = sh[network_choice]
     return wk
 
-def metric_xlsx_migrater():
+def metric_xlsx_migrator():
     sc_src = 'F:\Analytics\Longitudinals - Composite and Assembled'
     wm_src = 'F:\Analytics\Walmart Reporting\Output'
-    dst = 'C:/Users/jay.yu/Documents/Git/case_list_refresh/data'
+    dst = local_data_paths['local_dst']
 
     files = []
 
@@ -103,7 +103,13 @@ def all_wm_import():
     all_wm_lift_mod = all_wm_lift_mod.drop(all_wm_lift_mod.index[0])
     all_wm_lift_mod = all_wm_lift_mod.rename(columns={'Rest of Supercenters': 'Control stores'})
 
+    all_wm_ltv = pd.read_excel('data/all_wm.xlsx', 'c_ltv')
+    all_wm_ltv_mod = all_wm_ltv.iloc[8:, :]
+    all_wm_ltv_mod.columns = all_wm_ltv_mod.iloc[0]
+    all_wm_ltv_mod = all_wm_ltv_mod.drop(all_wm_ltv_mod.index[0])
+
     wm_df_raw = all_wm_metrics_mod.merge(all_wm_lift_mod, how='left', left_on='Program', right_on='Program list', copy=False,suffixes=('', '_'))
+    wm_df_raw = wm_df_raw.merge(all_wm_ltv_mod, how='left', left_on='Program', right_on='Program list', copy=False, suffixes=('', '_'))
     wm_df_raw = wm_df_raw.drop(columns=['start_date', 'end_date'])
     print('Successfully imported data from all_wm.xlsx.')
     return wm_df_raw
@@ -136,8 +142,10 @@ def wm_formatter(wm_df_raw):
     # Formatting
     wm_df_raw['Traffic/store'] = wm_df_raw['Audience'] / wm_df_raw['Freeosk stores']
     wm_df_raw['Scans/store'] = wm_df_raw['Scans'] / wm_df_raw['Freeosk stores']
+    wm_df_raw['Lift_delta'] = wm_df_raw['Freeosk lift'] - wm_df_raw['Control lift']
     wm_df_raw.loc[:, 'Tags'] = ''
     wm_df_raw.loc[:, 'Notes'] = ''
+    wm_df_raw.loc[:, 'Basecamp'] = ''
     wm_df_raw.columns = [column.replace('_', ' ') for column in list(wm_df_raw)]
     wm_df_raw.columns = [column.capitalize() for column in list(wm_df_raw)]
     wm_df_raw = wm_df_raw.rename(columns={'Non-traceable aud': 'Non traceable aud'})
@@ -147,9 +155,10 @@ def wm_formatter(wm_df_raw):
     rearranged_columns = ['Program', 'Tags', 'Notes', 'Weeks post', 'Start date', 'End date', 
                             'Item number', 'Placement name', 'Dept', 'Sub dept', 'Dept name', 
                             'Sub dept name', 'Freeosk stores', 'Rest of chain stores', 'Traceable audience', 
-                            'Non traceable aud', 'Audience', 'Traffic/store', 'Scans', 'Scans/store', 'Total conv', 
-                            'Repeat', 'A', 'B', 'C', 'Households', 'A%', 'B%', 'C%', 'A+b%', 'Control lift', 
-                            'Freeosk lift', 'Program2']
+                            'Non traceable aud', 'Audience', 'Traffic/store', 'Scans', 'Scans/store', 'Engagement', 
+                            'Total conv', 'Repeat', 'Immediate', 'A', 'B', 'C', 
+                            'Households', 'A%', 'B%', 'C%', 'A+b%', 'Dollars', 'Annual value', 'Control lift',
+                            'Freeosk lift', 'Lift delta', 'Program2', 'Basecamp']
 
     wm_df_raw = wm_df_raw[rearranged_columns].reset_index(drop=True)
 
@@ -166,7 +175,9 @@ def sc_formatter(sc_df_raw):
     sc_df_raw['Traffic/club'] = sc_df_raw['Audience'] / sc_df_raw['Freeosk clubs']
     sc_df_raw['Scans/club'] = sc_df_raw['Scans'] / sc_df_raw['Freeosk clubs']
     sc_df_raw['Program2'] = sc_df_raw['Program'].str.split("_", n=1, expand=True)[0]
+    sc_df_raw['Lift_delta'] = sc_df_raw['Freeosk lift'] - sc_df_raw['Control lift']
     sc_df_raw['Unique Identifier'] = sc_df_raw['Program2'] + sc_df_raw['Item number'].astype(str)
+    sc_df_raw['A+B%'] = sc_df_raw['HH_A%'] + sc_df_raw['HH_B%']
     renamed_columns = {
         'HH_A%': 'A%',
         'HH_B%': 'B%',
@@ -177,13 +188,13 @@ def sc_formatter(sc_df_raw):
     sc_df_raw.loc[:, 'Notes'] = ''
     sc_df_raw.columns = [column.replace('_', ' ') for column in list(sc_df_raw)]
     sc_df_raw.columns = [column.capitalize() for column in list(sc_df_raw)]
-
+    sc_df_raw.loc[:, 'Basecamp'] = ''
     # Mapping to food boolean
     food_mapping = pd.read_excel('data/Food_Mapping.xlsx')
     sc_df_raw_2 = pd.merge(sc_df_raw, food_mapping,  how='left', 
                        left_on=['Category num','Subcat num'], 
                        right_on = ['CATEGORY_NUMBER','SUB_CATEGORY_NUMBER'])
-    print(f'Successfully joined to Food_Mapping.xslx')
+    print(f'Successfully joined to Food_Mapping.xlsx')
 
     # Final column rearrangement
     rearranged_columns = ['Program', 'Tags', 'Notes', 'Weeks post', 'Start date', 
@@ -191,14 +202,14 @@ def sc_formatter(sc_df_raw):
                       'Subcategory', 'Category num', 'Subcat num', 'Freeosk clubs', 
                       'Control clubs', 'Transactions', 'Audience', 'Traffic/club', 
                       'Scans', 'Scans/club', 'Engagement', 'Conversion', 'Repeat', 
-                      'Immediate', 'A%', 'B%', 'C%', 'Freeosk lift', 'Control lift', 
-                      'Merchandising type', 'Placement type', 'Program2', 'Unique identifier', 'Food']
+                      'Immediate', 'A', 'B', 'C', 'A%', 'B%', 'C%', 'A+b%' 'Dollars', 'Freeosk lift', 'Control lift', 'Lift delta',
+                      'Merchandising type', 'Placement type', 'Program2', 'Unique identifier', 'Food', 'Basecamp']
 
     sc_df_raw_3 = sc_df_raw_2[rearranged_columns].reset_index(drop=True)
-
+    sc_df_raw_3 = sc_df_raw_3.rename(columns={'A+b%':'A+B%'})
     sc_df_formatted = sc_df_raw_3[(sc_df_raw_3['Weeks post'] == '12W') & (sc_df_raw_3['Program'].str.contains('_12.zip'))]
-    sc_df_formatted['Start date']= pd.to_datetime(sc_df_formatted['Start date'])
-    sc_df_formatted['End date']= pd.to_datetime(sc_df_formatted['End date'])
+    # sc_df_formatted['Start date']= pd.to_datetime(sc_df_formatted['Start date'])
+    # sc_df_formatted['End date']= pd.to_datetime(sc_df_formatted['End date'])
     print(f'SC_Formatter completed! Shape is {sc_df_formatted.shape}')
     return sc_df_formatted
 
@@ -207,6 +218,7 @@ def gsheet_uploader(wk, gsheet_df, append_df):
     
     wk.clear('A2') # A2 is start of dataframe
     wk.set_dataframe(gsheet_import_appended, 'A2', copy_index=False, copy_head=False, extend=False, fit=True, escape_formulae=True, nan='')
+
     print('New data has been successfully uploaded!') 
 
 # HYPERLINK FUNCTIONS
@@ -278,7 +290,6 @@ def hyperlink_updater(wk, file_list):
             file_list_names = list(file_list.keys())
             
             if file_name in file_list_names:
-                print(f'Found one {file_name}!')
 
                 file_name_zip = file_name.split('_case.pptx')[0] + '.zip' # Reference back to original name
 
@@ -318,7 +329,80 @@ def ppt_migrator(network):
 
     print(f'{count} files migrated.')
 
+def sc_gsheetformatter(wk):
 
+    sc_columns = {
+        'Engagement': 'T',
+        'Conversion': 'U',
+        'Repeat': 'V',
+        'Immediate': 'W',
+        'A%': 'AA',
+        'B%': 'AB',
+        'C%': 'AC',
+        'A+B%': 'AD',
+        'Freeosk lift': 'AF',
+        'Control lift': 'AG',
+        'Lift delta': 'AH'
+        }
+    for col_name, col_letter in sc_columns.items():
+        print(f'Transforming {col_name}, column {col_letter}')
+        n_rows = wk.rows
+        model_cell = pygsheets.Cell(f'{col_letter}1')
+        model_cell.color = (0.70588235294, 0.65490196078, 0.83921568627)
+        model_cell.set_text_format('fontFamily', 'Calibri')
+        model_cell.set_text_format('bold', True)
+        model_cell.format = (pygsheets.FormatType.PERCENT, '0.00%')
+        pygsheets.DataRange(f'{col_letter}1',f'{col_letter}{n_rows}', worksheet=wk).apply_format(model_cell)
+    
+    dollar_col = 'AA'
+    n_rows = wk.rows
+    model_cell = pygsheets.Cell(f'{dollar_col}1')
+    model_cell.color = (0.70588235294, 0.65490196078, 0.83921568627)
+    model_cell.set_text_format('fontFamily', 'Calibri')
+    model_cell.set_text_format('bold', True)
+    model_cell.format = (pygsheets.FormatType.PERCENT, '0.00%')
+    pygsheets.DataRange(f'{dollar_col}1',f'{dollar_col}{n_rows}', worksheet=wk).apply_format(model_cell)
+
+def wm_gsheet_formatter(wk):
+
+    wm_columns = {
+        'Engagement': 'U',
+        'Repeat': 'W',
+        'Immediate': 'X',
+        'A%': 'AC',
+        'B%': 'AD',
+        'C%': 'AE',
+        'A+B%': 'AF',
+        'Freeosk lift': 'AI',
+        'Control lift': 'AJ',
+        'Lift delta': 'AK'
+    }
+    for col_name, col_letter in wm_columns.items():
+        print(f'Transforming {col_name}, column {col_letter}')
+        n_rows = wk.rows
+        model_cell = pygsheets.Cell(f'{col_letter}1')
+        model_cell.color = (0.70588235294, 0.65490196078, 0.83921568627)
+        model_cell.set_text_format('fontFamily', 'Calibri')
+        model_cell.set_text_format('bold', True)
+        model_cell.format = (pygsheets.FormatType.PERCENT, '0.00%')
+        pygsheets.DataRange(f'{col_letter}1',f'{col_letter}{n_rows}', worksheet=wk).apply_format(model_cell)
+
+    dollar_col = ['AG', 'AH']
+    for col in dollar_col:
+        n_rows = wk.rows
+        model_cell = pygsheets.Cell(f'{col}1')
+        model_cell.color = (0.70588235294, 0.65490196078, 0.83921568627)
+        model_cell.set_text_format('fontFamily', 'Calibri')
+        model_cell.set_text_format('bold', True)
+        model_cell.format = (pygsheets.FormatType.CURRENCY, '$ 0.00') # https://pygsheets.readthedocs.io/en/stable/_modules/pygsheets/custom_types.html#FormatType
+        pygsheets.DataRange(f'{col}1',f'{col}{n_rows}', worksheet=wk).apply_format(model_cell)
+    
+
+def gsheet_formatter(wk, network):
+    if network == "Sam's Club":
+        sc_gsheetformatter(wk)
+    elif network == 'Walmart':
+        wm_gsheet_formatter(wk)
 
 # OLD FUNCTIONS
 # def sc_sql_metrics_old(not_tuple):

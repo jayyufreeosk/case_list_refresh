@@ -36,14 +36,14 @@ def initial_prompts(script_name):
     return network_name
 
 def main():
-    gsheet_url = 'https://docs.google.com/spreadsheets/d/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/edit#gid=0' # REAL
-    # gsheet_url = 'https://docs.google.com/spreadsheets/d/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/edit#gid=0' # TEST
+    # gsheet_url = 'https://docs.google.com/spreadsheets/d/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/edit#gid=0' # REAL
+    gsheet_url = 'https://docs.google.com/spreadsheets/d/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/edit#gid=0' # TEST
     network_name = initial_prompts('Case List Refresher')
     # network_name = 'All'
     print('Running Step 1')
     file_list = gfile_list_agg() # Aggregates list of PPTX files in GDrive (>750 elements)
     
-    metric_xlsx_migrater() # Migrates all_wm and all_longitudinal_card
+    metric_xlsx_migrator() # Migrates all_wm and all_longitudinal_card
     print('Step 1 completed.')
     print('============================================')
     print('Running Step 2')
@@ -51,6 +51,14 @@ def main():
     if network_name == 'All' or network_name == "Sam's Club":
         network_name_sub = "Sam's Club"
 
+        print("Running PPTX migrator for Sam's Club.")
+        try: ppt_migrator(network_name_sub)
+        except: 
+            logging.error("ppt_migrator failed.", exc_info=True)
+            print('PPTX migrator failed.')
+        file_list = gfile_list_agg()
+
+        print('----------------------------------------')
         print("Running appender for Sam's Club.")
         wk = worksheet(gsheet_url, network_name_sub)
         gsheet_df = gsheet_import_df(wk)
@@ -67,13 +75,6 @@ def main():
             gsheet_uploader(wk, gsheet_df, append_df)
 
         print('----------------------------------------')
-        print("Running PPTX migrator for Sam's Club.")
-        try: ppt_migrator(network_name_sub)
-        except: 
-            logging.error("ppt_migrator failed.", exc_info=True)
-            print('PPTX migrator failed.')
-        
-        print('----------------------------------------')
         print("Running hyperlink updater for Sam's Club.")
         try: hyperlink_updater(wk, file_list)
         except: 
@@ -86,7 +87,15 @@ def main():
     if network_name == 'All' or network_name == "Walmart":
         network_name_sub = 'Walmart'
 
+        print("Running PPTX migrator for Walmart.")
+        try: ppt_migrator(network_name_sub)
+        except: 
+            logging.error("ppt_migrator failed.", exc_info=True)
+            print('PPTX migrator failed.')
         print("Running appender for Walmart.")
+        file_list = gfile_list_agg()
+
+        print('----------------------------------------')
         wk = worksheet(gsheet_url, network_name_sub)
         gsheet_df = gsheet_import_df(wk)
 
@@ -96,17 +105,10 @@ def main():
         append_df = wm_df_formatted[~wm_df_formatted['Program'].isin(not_list)] # Returns rows to append
 
         if append_df.empty:
-            print('No new WM rows to append. Stopping upload.')
+            print('No new wm rows to append. Stopping upload.')
             logging.warning('No new WM rows to append. Stopping upload.')
         else: 
             gsheet_uploader(wk, gsheet_df, append_df)
-
-        print('----------------------------------------')
-        print("Running PPTX migrator for Walmart.")
-        try: ppt_migrator(network_name_sub)
-        except: 
-            logging.error("ppt_migrator failed.", exc_info=True)
-            print('PPTX migrator failed.')
 
         print('----------------------------------------')
         print("Running hyperlink updater for Walmart.")
