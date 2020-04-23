@@ -32,8 +32,15 @@
 
 ### Version 2.1
 
-- Convert engagement to %
-- Calculate sales lift delta
-- Annual value
-- Audience breakdown
-- Column to show finalized/submitted
+- Convert several columns to percentage format.
+- Convert several columns to currency format.
+- Added conversion, immediate, and A+B% to SC tab.
+- Calculate sales lift delta.
+- Annual value.
+- Audience breakdown.
+- Column to show finalized/submitted "Basecamp".
+- Advanced formatting code created.
+
+### Future
+
+- Clean up `function.py` and `caselist_refresher.py` code. Maybe break down `function.py` to smaller files.

@@ -177,7 +177,8 @@ def sc_formatter(sc_df_raw):
     sc_df_raw['Program2'] = sc_df_raw['Program'].str.split("_", n=1, expand=True)[0]
     sc_df_raw['Lift_delta'] = sc_df_raw['Freeosk lift'] - sc_df_raw['Control lift']
     sc_df_raw['Unique Identifier'] = sc_df_raw['Program2'] + sc_df_raw['Item number'].astype(str)
-    sc_df_raw['A+B%'] = sc_df_raw['HH_A%'] + sc_df_raw['HH_B%']
+    sc_df_raw['A+B%'] = sc_df_raw['A%'] + sc_df_raw['B%']
+    print(list(sc_df_raw))
     renamed_columns = {
         'HH_A%': 'A%',
         'HH_B%': 'B%',
@@ -202,7 +203,7 @@ def sc_formatter(sc_df_raw):
                       'Subcategory', 'Category num', 'Subcat num', 'Freeosk clubs', 
                       'Control clubs', 'Transactions', 'Audience', 'Traffic/club', 
                       'Scans', 'Scans/club', 'Engagement', 'Conversion', 'Repeat', 
-                      'Immediate', 'A', 'B', 'C', 'A%', 'B%', 'C%', 'A+b%' 'Dollars', 'Freeosk lift', 'Control lift', 'Lift delta',
+                      'Immediate', 'A', 'B', 'C', 'A%', 'B%', 'C%', 'A+b%', 'Dollars', 'Freeosk lift', 'Control lift', 'Lift delta',
                       'Merchandising type', 'Placement type', 'Program2', 'Unique identifier', 'Food', 'Basecamp']
 
     sc_df_raw_3 = sc_df_raw_2[rearranged_columns].reset_index(drop=True)
@@ -332,77 +333,74 @@ def ppt_migrator(network):
 def sc_gsheetformatter(wk):
 
     sc_columns = {
-        'Engagement': 'T',
-        'Conversion': 'U',
-        'Repeat': 'V',
-        'Immediate': 'W',
-        'A%': 'AA',
-        'B%': 'AB',
-        'C%': 'AC',
-        'A+B%': 'AD',
-        'Freeosk lift': 'AF',
-        'Control lift': 'AG',
-        'Lift delta': 'AH'
+        'Engagement': ['T', (0.83529411765, 0.65098039216, 0.741176470590)],
+        'Conversion': ['U', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'Repeat': ['V', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'Immediate': ['W', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'A%': ['AA', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'B%': ['AB', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'C%': ['AC', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'A+B%': ['AD', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'Freeosk lift': ['AF', (0.91764705882, 0.81960784314, 0.86274509804)],
+        'Control lift': ['AG', (0.91764705882, 0.81960784314, 0.86274509804)],
+        'Lift delta': ['AH', (0.91764705882, 0.81960784314, 0.86274509804)]
         }
-    for col_name, col_letter in sc_columns.items():
-        print(f'Transforming {col_name}, column {col_letter}')
-        n_rows = wk.rows
-        model_cell = pygsheets.Cell(f'{col_letter}1')
-        model_cell.color = (0.70588235294, 0.65490196078, 0.83921568627)
+    n_rows = wk.rows
+    for col_name, col_attr in sc_columns.items():
+        model_cell = pygsheets.Cell(f'{col_attr[0]}2')
+        model_cell.color = (col_attr[1])
+        # model_cell.color = (0.70588235294, 0.65490196078, 0.83921568627)
         model_cell.set_text_format('fontFamily', 'Calibri')
         model_cell.set_text_format('bold', True)
         model_cell.format = (pygsheets.FormatType.PERCENT, '0.00%')
-        pygsheets.DataRange(f'{col_letter}1',f'{col_letter}{n_rows}', worksheet=wk).apply_format(model_cell)
+        pygsheets.DataRange(f'{col_attr[0]}2',f'{col_attr[0]}{n_rows}', worksheet=wk).apply_format(model_cell)
     
-    dollar_col = 'AA'
-    n_rows = wk.rows
-    model_cell = pygsheets.Cell(f'{dollar_col}1')
-    model_cell.color = (0.70588235294, 0.65490196078, 0.83921568627)
+    dollar_col = 'AE'
+    model_cell = pygsheets.Cell(f'{dollar_col}2')
+    model_cell.color = (0.91764705882, 0.81960784314, 0.86274509804)
     model_cell.set_text_format('fontFamily', 'Calibri')
     model_cell.set_text_format('bold', True)
-    model_cell.format = (pygsheets.FormatType.PERCENT, '0.00%')
-    pygsheets.DataRange(f'{dollar_col}1',f'{dollar_col}{n_rows}', worksheet=wk).apply_format(model_cell)
+    model_cell.format = (pygsheets.FormatType.CURRENCY, '$ 0.00')
+    pygsheets.DataRange(f'{dollar_col}2',f'{dollar_col}{n_rows}', worksheet=wk).apply_format(model_cell)
 
 def wm_gsheet_formatter(wk):
 
     wm_columns = {
-        'Engagement': 'U',
-        'Repeat': 'W',
-        'Immediate': 'X',
-        'A%': 'AC',
-        'B%': 'AD',
-        'C%': 'AE',
-        'A+B%': 'AF',
-        'Freeosk lift': 'AI',
-        'Control lift': 'AJ',
-        'Lift delta': 'AK'
+        'Engagement': ['U', (0.83529411765, 0.65098039216, 0.741176470590)],
+        'Total conv': ['V', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'Repeat': ['W', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'Immediate': ['X', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'A%': ['AC', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'B%': ['AD', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'C%': ['AE', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'A+B%': ['AF', (0.83529411765, 0.65098039216, 0.74117647059)],
+        'Control lift': ['AI', (0.91764705882, 0.81960784314, 0.86274509804)],
+        'Freeosk lift': ['AJ', (0.91764705882, 0.81960784314, 0.86274509804)],
+        'Lift delta': ['AK', (0.91764705882, 0.81960784314, 0.86274509804)]
     }
-    for col_name, col_letter in wm_columns.items():
-        print(f'Transforming {col_name}, column {col_letter}')
-        n_rows = wk.rows
-        model_cell = pygsheets.Cell(f'{col_letter}1')
-        model_cell.color = (0.70588235294, 0.65490196078, 0.83921568627)
+    n_rows = wk.rows
+    for col_name, col_attr in wm_columns.items():
+        
+        model_cell = pygsheets.Cell(f'{col_attr[0]}2')
+        model_cell.color = (col_attr[1])
+        # model_cell.color = (0.70588235294, 0.65490196078, 0.83921568627)
         model_cell.set_text_format('fontFamily', 'Calibri')
         model_cell.set_text_format('bold', True)
         model_cell.format = (pygsheets.FormatType.PERCENT, '0.00%')
-        pygsheets.DataRange(f'{col_letter}1',f'{col_letter}{n_rows}', worksheet=wk).apply_format(model_cell)
+        pygsheets.DataRange(f'{col_attr[0]}2',f'{col_attr[0]}{n_rows}', worksheet=wk).apply_format(model_cell)
 
     dollar_col = ['AG', 'AH']
     for col in dollar_col:
-        n_rows = wk.rows
-        model_cell = pygsheets.Cell(f'{col}1')
-        model_cell.color = (0.70588235294, 0.65490196078, 0.83921568627)
+        model_cell = pygsheets.Cell(f'{col}2')
+        model_cell.color = (0.91764705882, 0.81960784314, 0.86274509804)
         model_cell.set_text_format('fontFamily', 'Calibri')
         model_cell.set_text_format('bold', True)
         model_cell.format = (pygsheets.FormatType.CURRENCY, '$ 0.00') # https://pygsheets.readthedocs.io/en/stable/_modules/pygsheets/custom_types.html#FormatType
-        pygsheets.DataRange(f'{col}1',f'{col}{n_rows}', worksheet=wk).apply_format(model_cell)
+        pygsheets.DataRange(f'{col}2',f'{col}{n_rows}', worksheet=wk).apply_format(model_cell)
     
-
 def gsheet_formatter(wk, network):
-    if network == "Sam's Club":
-        sc_gsheetformatter(wk)
-    elif network == 'Walmart':
-        wm_gsheet_formatter(wk)
+    if network == "Sam's Club": sc_gsheetformatter(wk)
+    elif network == 'Walmart': wm_gsheet_formatter(wk)
 
 # OLD FUNCTIONS
 # def sc_sql_metrics_old(not_tuple):
