@@ -156,7 +156,7 @@ def wm_formatter(wm_df_raw):
                             'Item number', 'Placement name', 'Dept', 'Sub dept', 'Dept name', 
                             'Sub dept name', 'Freeosk stores', 'Rest of chain stores', 'Traceable audience', 
                             'Non traceable aud', 'Audience', 'Traffic/store', 'Scans', 'Scans/store', 'Engagement', 
-                            'Total conv', 'Repeat', 'Immediate', 'A', 'B', 'C', 
+                            'Conversion', 'Repeat', 'Immediate', 'A', 'B', 'C', 
                             'Households', 'A%', 'B%', 'C%', 'A+b%', 'Dollars', 'Annual value', 'Control lift',
                             'Freeosk lift', 'Lift delta', 'Program2', 'Basecamp']
 

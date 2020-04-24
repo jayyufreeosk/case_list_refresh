@@ -1,5 +1,7 @@
 from functions import *
 
+import time
+
 def initial_prompts(script_name):
     intro = f"""\n
     Welcome to the Freeosk Analytics {script_name}
@@ -35,6 +37,17 @@ def initial_prompts(script_name):
 
     return network_name
 
+def main2():
+    gsheet_url = 'https://docs.google.com/spreadsheets/d/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/edit#gid=0' # TEST
+    # network_name = initial_prompts('Case List Refresher')
+    network_name_sub = "Sam's Club"
+    wk = worksheet(gsheet_url, network_name_sub)
+    gsheet_formatter(wk, network_name_sub)
+    network_name_sub = 'Walmart'
+    wk = worksheet(gsheet_url, network_name_sub)
+    gsheet_formatter(wk, network_name_sub)
+
+
 def main():
     # gsheet_url = 'https://docs.google.com/spreadsheets/d/1-p5-secff5mixTwj2QSqd7rl4twcmZBmQBaR1LrM2Pw/edit#gid=0' # REAL
     gsheet_url = 'https://docs.google.com/spreadsheets/d/1wsnBd3AHObl4gnUJ2MlwkusuXRoOsQpu2Kx6zGH8bVY/edit#gid=0' # TEST
@@ -48,6 +61,7 @@ def main():
     print('============================================')
     print('Running Step 2')
     print('============================================')
+    
     if network_name == 'All' or network_name == "Sam's Club":
         network_name_sub = "Sam's Club"
 
@@ -62,17 +76,19 @@ def main():
         print("Running appender for Sam's Club.")
         wk = worksheet(gsheet_url, network_name_sub)
         gsheet_df = gsheet_import_df(wk)
-        
+        print('Importing all_longitudinal_card.')
         sc_df_raw = all_longitudinal_card_import()
+        print('Imported all_longitudinal_card.')
         sc_df_formatted = sc_formatter(sc_df_raw)
         not_list = gsheet_df['Program'].to_list() # Checks for rows to append
         append_df = sc_df_formatted[~sc_df_formatted['Program'].isin(not_list)] # Returns rows to append
-
+        
         if append_df.empty: 
             print('No new SC rows to append. Stopping upload.')
             logging.warning('No new SC rows to append. Stopping upload.')
         else: 
             gsheet_uploader(wk, gsheet_df, append_df)
+            gsheet_formatter(wk, network_name_sub)
 
         print('----------------------------------------')
         print("Running hyperlink updater for Sam's Club.")
@@ -97,9 +113,11 @@ def main():
 
         print('----------------------------------------')
         wk = worksheet(gsheet_url, network_name_sub)
+        gsheet_formatter(wk, network_name_sub)
         gsheet_df = gsheet_import_df(wk)
-
+        print('Importing all_wm.')
         wm_df_raw = all_wm_import()
+        print('Imported all_wm.')
         wm_df_formatted = wm_formatter(wm_df_raw)
         not_list = gsheet_df['Program'].to_list() # Checks for rows to append
         append_df = wm_df_formatted[~wm_df_formatted['Program'].isin(not_list)] # Returns rows to append
@@ -109,6 +127,7 @@ def main():
             logging.warning('No new WM rows to append. Stopping upload.')
         else: 
             gsheet_uploader(wk, gsheet_df, append_df)
+            gsheet_formatter(wk, network_name_sub)
 
         print('----------------------------------------')
         print("Running hyperlink updater for Walmart.")
@@ -120,4 +139,7 @@ def main():
     logging.info('__main__ complete.')
     print('Step 2 completed.')
 if __name__ == "__main__":
+    start_time = time.time()
     main()
+    seconds = time.time() - start_time
+    print('Time Taken:', time.strftime("%H:%M:%S",time.gmtime(seconds)))
